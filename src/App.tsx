@@ -54,7 +54,7 @@ export const App: React.FC = () => {
 
   const visibleGoods = getPreparedGoods(goodsFromServer, { sortField, isReversed });
 
-  const reverseToggle = () => setIsReversed(prev => !prev);
+  const handleReverseToggle = () => setIsReversed(prev => !prev);
   const resetGoods = () => {
     setSortField(SortType.Default);
     setIsReversed(false);
@@ -67,7 +67,7 @@ export const App: React.FC = () => {
       <div className="buttons">
         <button
           type="button"
-          className={`button is-info ${sortField === SortType.Alphabetically ? '' : 'is-light'}`}
+          className={`button is-info ${sortField === SortType.Alphabetically ? 'is-primary' : 'is-light'}`}
           onClick={() => setSortField(SortType.Alphabetically)}
         >
           Sort alphabetically
@@ -75,7 +75,7 @@ export const App: React.FC = () => {
 
         <button
           type="button"
-          className={`button is-info ${sortField === SortType.Length ? '' : 'is-light'}`}
+          className={`button is-info ${sortField === SortType.Length ? 'is-primary' : 'is-light'}`}
           onClick={() => setSortField(SortType.Length)}
         >
           Sort by length
@@ -83,8 +83,8 @@ export const App: React.FC = () => {
 
         <button
           type="button"
-          className={`button is-info ${isReversed ? '' : 'is-light'}`}
-          onClick={reverseToggle}
+          className={`button is-info ${isReversed ? 'is-primary' : 'is-light'}`}
+          onClick={handleReverseToggle}
         >
           Reverse
         </button>
